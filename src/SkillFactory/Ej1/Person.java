@@ -1,20 +1,21 @@
 package SkillFactory.Ej1;
 
-public class Person implements Comparable {
+public class Person implements Comparable<Person> {
     private String name;
     private int age;
     private String id;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Person(String name, int age, String id) {
+        setName(name);
+        setAge(age);
+        setId(id);
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -22,29 +23,30 @@ public class Person implements Comparable {
         return age;
     }
 
-    public void setAge(int age) {
+    private void setAge(int age) {
         this.age = age;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Person p = null;
-        if (o instanceof Person) {
-            p = (Person) o;
-        } else {
-            return -1;
-        }
 
-        if (this.age > p.getAge()) {
-            return 1;
-        } else {
-            if (this.age == p.getAge()) {
-                return 0;
-            } else {
-                return -1;
-            }
-        }
+    public String getId() {
+        return this.id;
     }
 
+    private void setId(String id) {
+        this.id = id;
+    }
 
+    @Override
+    public int compareTo(Person o) {        
+        return Integer.compare(this.age, o.getAge());
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

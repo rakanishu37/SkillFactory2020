@@ -1,19 +1,21 @@
 package SkillFactory.Ej1;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Numbers {
-    List<Integer> numbers;
+    private List<Integer> numbers;
 
     public Numbers() {
         numbers = new ArrayList<>();
     }
 
-    public boolean addNumber(Integer n) {
+    public Boolean addNumber(Integer n) {
         return numbers.add(n);
     }
 
-    public boolean removeNumber(Integer n) {
+    public Boolean removeNumber(Integer n) {
         return numbers.remove(n);
     }
 

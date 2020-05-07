@@ -9,7 +9,7 @@ package SkillFactory.Ej1;
  */
 public class Ej1Main {
     public static void main(String[] args) {
-        /*Numbers n = new Numbers();
+        Numbers n = new Numbers();
         n.addNumber(1);
         n.addNumber(8);
         n.addNumber(3);
@@ -20,11 +20,24 @@ public class Ej1Main {
 
         System.out.println(n.showNumbers1());
         System.out.println(n.showOrderedNumbers());
-        System.out.println(n.showReversedOrderedNumbers());*/
+        System.out.println(n.showReversedOrderedNumbers());
 
+        Person p1 = new Person("name1",20,"4581");
+        Person p2 = new Person("name2",20,"1234");
         PeopleRegistry pr = new PeopleRegistry();
+        pr.addPerson(p1);
+        pr.addPerson(p2);
 
-        /*
-        ThirdClass c3;*/
+        System.out.println(pr.showRegistry1());
+        System.out.println(pr.showRegistry2());
+        System.out.println(pr.showRegistryOrderedByKeys());
+
+        AnimalSet animalSet = new AnimalSet();
+        animalSet.addAnimal("Cat");
+        animalSet.addAnimal("Dog");
+        animalSet.addAnimal("Turtle");
+        animalSet.addAnimal("Dog");
+
+        System.out.println(animalSet.showAnimals());
     }
 }

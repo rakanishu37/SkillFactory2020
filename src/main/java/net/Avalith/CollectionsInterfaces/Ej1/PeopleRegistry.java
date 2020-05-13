@@ -1,7 +1,10 @@
 package net.Avalith.CollectionsInterfaces.Ej1;
 
-import java.awt.image.AreaAveragingScaleFilter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PeopleRegistry {
     Map<String,Person> registry;

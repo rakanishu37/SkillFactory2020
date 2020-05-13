@@ -8,8 +8,8 @@ package net.Avalith.CollectionsInterfaces.Ej6;
  * votado por el resto.
  * ● Cada voto debe ir acompañado del id del socio que votó, si no ingresa su id, a este socio que votó, se le resta un voto, siempre y
  * cuando tenga votos, sino, no se le resta.
- * ● El club mes a mes va publicando una lista actualizada de sus socios, ordenada por orden alfabético (investigar cómo ayudar a la
- * colección a comparar objetos).
+ * ●o El club mes a mes va publicando una lista actualizada de sus socios, ordenada por orden alfabético (investigar cómo ayudar a la
+ *  * colección a comparar objets).
  */
 public class Ej6Main {
     public static void main(String[] args) {

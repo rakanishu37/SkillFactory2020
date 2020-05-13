@@ -2,19 +2,19 @@ package net.Avalith.CollectionsInterfaces.Ej6;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class Club {
     private Set<ClubMember> members;
     private Map<UUID,Vote> votes;
+    private Set<UUID> census;
 
     public Club() {
         this.members = new HashSet<>();
         this.votes = new HashMap<>();
+        this.census = new HashSet<>();
     }
 
     public void addMember(ClubMember member){
@@ -27,33 +27,29 @@ public class Club {
         votes.remove(member.getId());
     }
 
-    private void removeVotingCapacity(ClubMember member){
-        votes.remove(member.getId());
+    private void removeVotingCapacity(UUID memberId){
+        votes.remove(memberId);
     }
 
-    public void vote(UUID member,UUID votedId){
-        Vote voter = votes.get(member);
-        if(voter.getHasVoted()){
-            removeVotingCapacity(voter.getVoter());
+    public void vote(UUID voterId,UUID votedId){
+        if( census.contains(voterId)){
+            removeVotingCapacity(voterId);
         }
         else{
-            votes.get(member).setVote(true);
             votes.get(votedId).addVote();
+            census.add(voterId);
         }
     }
 
     public String publishMemberList(){
         StringBuilder sb = new StringBuilder();
-        List<String> memberListOrdered= members.stream()
-                                                .map(ClubMember::getName)
-                                                .sorted()
-                                                .collect(Collectors.toList());
-        memberListOrdered.forEach((name) -> sb.append(name+"\n"));
-        return sb.toString();
-
+        return members.stream()
+                        .map(ClubMember::getName)
+                        .sorted()
+                        .reduce("",(a,name) -> a + name + "\n");
     }
 
-    public String publishMostVotedMember(){
+    public ClubMember publishMostVotedMember(){
         Vote topMember = null;
         for(Map.Entry<UUID,Vote> voted : votes.entrySet()){
             Vote voter = voted.getValue();
@@ -61,7 +57,7 @@ public class Club {
                 topMember = voter;
             }
         }
-        return topMember.getVoter().getName();
+        return topMember.getMember();
     }
 
 }

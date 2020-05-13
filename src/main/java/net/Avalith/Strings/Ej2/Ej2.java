@@ -8,9 +8,13 @@ package net.Avalith.Strings.Ej2;
 public class Ej2 {
     public static void main(String[] args) {
         RomanNumberConvertor convertor = new RomanNumberConvertor();
-        System.out.println(convertor.convert("X"));
-        System.out.println(convertor.convert("III"));
-        System.out.println(convertor.convert("II"));
-        System.out.println(convertor.convert("IXV"));
+        try{
+            //System.out.println(convertor.convert("X"));
+            //System.out.println(convertor.convert("III"));
+            //System.out.println(convertor.convert("II"));
+            System.out.println(convertor.convert("MCMIV"));
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
     }
 }

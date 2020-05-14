@@ -9,10 +9,10 @@ public class Ej2 {
     public static void main(String[] args) {
         RomanNumberConvertor convertor = new RomanNumberConvertor();
         try{
-            //System.out.println(convertor.convert("X"));
-            //System.out.println(convertor.convert("III"));
-            //System.out.println(convertor.convert("II"));
-            System.out.println(convertor.convert("MCMIV"));
+            System.out.println(convertor.convert("X"));
+            System.out.println(convertor.convert("III"));
+            System.out.println(convertor.convert("II"));
+            System.out.println(convertor.convert("IV"));
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
